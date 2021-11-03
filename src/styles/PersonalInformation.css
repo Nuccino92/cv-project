@@ -1,0 +1,63 @@
+.personalInformationContainer {
+  width: 700px;
+  padding: 10px;
+  font-family: "Arimo";
+  border: 1px solid black;
+}
+
+.personalInformationContainer > h3 {
+  font-size: 25px;
+  color: #f54e42;
+  margin-bottom: 15px;
+}
+
+.personalInformationContainer > h4 {
+  font-size: 18px;
+  margin-bottom: 32px;
+  opacity: 0.7;
+}
+
+.pairContainer {
+  display: grid;
+  grid-template-columns: 300px 200px;
+  margin: 23px 0 23px 0;
+}
+
+.pairContainer > input {
+  height: 40px;
+  width: 300px;
+  padding: 6px;
+  font-size: 15px;
+  border-radius: 3px;
+  border: 1px solid #f54e42;
+}
+
+.pairContainer > label {
+  font-weight: bolder;
+  padding: 5px 0 5px 0;
+  opacity: 0.7;
+  font-size: 13px;
+}
+
+.personalInformationContainer > form > label {
+  display: block;
+  font-weight: bolder;
+  padding: 5px 0 5px 0;
+  opacity: 0.7;
+  font-size: 13px;
+}
+
+.personalInformationContainer > form > input {
+  height: 40px;
+  width: 600px;
+  padding: 6px;
+  font-size: 15px;
+  border-radius: 3px;
+  border: 1px solid #f54e42;
+}
+
+#photo {
+  height: min-content;
+  width: min-content;
+  border: none;
+}
