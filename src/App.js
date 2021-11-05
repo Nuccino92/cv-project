@@ -14,7 +14,6 @@ class App extends Component {
   }
 
   handleActive() {
-    console.log(this.state.isActive);
     this.setState({ isActive: !this.state.isActive });
   }
 
