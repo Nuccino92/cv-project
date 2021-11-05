@@ -1,0 +1,133 @@
+.modal {
+  display: initial;
+}
+
+.modal.active {
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.templateContainer {
+  border: 1px solid black;
+}
+
+.template {
+  position: fixed;
+  display: flex;
+  border: 1px solid black;
+  height: 1200px;
+  width: 1000px;
+  transform: scale(30%);
+  left: 50%;
+  top: -20%;
+  cursor: pointer;
+}
+
+.template.active {
+  position: initial;
+  transform: scale(100%);
+  margin: 10% auto;
+  height: 1200px;
+  width: 1000px;
+  z-index: 1000;
+}
+
+.leftTempContainer {
+  position: relative;
+  border: 1px solid black;
+  width: 30%;
+  flex-wrap: wrap;
+  background-color: #eee6e7;
+  padding: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.leftTempContainer > .tempPhoto {
+  border: 1px solid black;
+  height: 130px;
+  width: 130px;
+  border-radius: 2;
+  margin: auto;
+}
+
+.tempPhoto > img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+
+.tempNameContainer {
+  font-family: "Arimo";
+  padding: 27px 0 10px 0;
+  text-align: center;
+  font-weight: bolder;
+  font-size: 20px;
+  border-bottom: 1px solid black;
+}
+
+.tempProfession {
+  font-family: "Arimo";
+  padding: 15px 0 10px 0;
+  text-align: center;
+  font-weight: bolder;
+  font-size: 17px;
+}
+
+.tempContactContainer {
+  position: absolute;
+  bottom: 5%;
+  left: 0;
+  right: 0;
+  width: 90%;
+  height: 30%;
+  border: 1px solid black;
+  border-radius: 2;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.rightTempContainer {
+  border: 1px solid black;
+  width: max-content;
+  width: 70%;
+  background-color: white;
+  padding: 20px;
+}
+
+.rightTempContainer > h3 {
+  background: khaki;
+}
+
+.rightTempContainer > .tempExperienceContainer {
+  border-left: 1px solid black;
+  border-bottom: 1px solid black;
+  margin-top: 12px;
+  padding: 0 5px 5px 5px;
+}
+
+.tempExperience {
+  margin-top: 16px;
+}
+
+.rightTempContainer > .tempEducationContainer {
+  border-left: 1px solid black;
+  border-bottom: 1px solid black;
+  margin-top: 12px;
+  padding: 0 5px 5px 5px;
+}
+
+.rightTempContainer > .tempSkillsContainer {
+  border-left: 1px solid black;
+  border-bottom: 1px solid black;
+  margin-top: 12px;
+  padding: 0 5px 5px 5px;
+}
