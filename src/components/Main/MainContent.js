@@ -10,6 +10,10 @@ class MainContent extends Component {
     super();
 
     this.state = {
+      numExperienceForms: 0,
+      numEducationForms: 0,
+      numSkillsForms: 0,
+
       firstName: "",
       lastName: "",
       profession: "",
@@ -18,8 +22,22 @@ class MainContent extends Component {
       phone: "",
       email: "",
     };
-
+    this.addForm = this.addForm.bind(this);
+    this.removeForm = this.removeForm.bind(this);
     this.handleChange = this.handleChange.bind(this);
+  }
+
+  addForm(event) {
+    this.setState((prevState) => ({
+      [event.target.name]: prevState[event.target.name] + 1,
+    }));
+  }
+
+  removeForm(event) {
+    if (this.state[event.target.name] === 0) return;
+    this.setState((prevState) => ({
+      [event.target.name]: prevState[event.target.name] - 1,
+    }));
   }
 
   handleChange(event) {
@@ -35,9 +53,21 @@ class MainContent extends Component {
     return (
       <div style={ContainerStyle} className="mainContainer">
         <PersonalInformation handleChange={this.handleChange} />
-        <Experience />
-        <Education />
-        <Skills />
+        <Experience
+          numExperienceForms={this.state.numExperienceForms}
+          addForm={this.addForm}
+          removeForm={this.removeForm}
+        />
+        <Education
+          numEducationForms={this.state.numEducationForms}
+          addForm={this.addForm}
+          removeForm={this.removeForm}
+        />
+        <Skills
+          numSkillsForms={this.state.numSkillsForms}
+          addForm={this.addForm}
+          removeForm={this.removeForm}
+        />
         <Template
           state={this.state}
           isActive={isActive}
