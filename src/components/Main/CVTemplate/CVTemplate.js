@@ -7,6 +7,24 @@ class Template extends Component {
   render() {
     const { isActive } = this.props;
     const { handleActive } = this.props;
+    const { numExperienceForms } = this.props.state;
+    const { numEducationForms } = this.props.state;
+    const { numSkillsForms } = this.props.state;
+
+    const eduForms = [];
+    for (let i = 0; i < numEducationForms; i += 1) {
+      eduForms.push(<TemplateEducation key={i} number={i} />);
+    }
+
+    const expForms = [];
+    for (let i = 0; i < numExperienceForms; i += 1) {
+      expForms.push(<TemplateExperience key={i} number={i} />);
+    }
+
+    const skillForms = [];
+    for (let i = 0; i < numSkillsForms; i += 1) {
+      skillForms.push(<TemplateSkills key={i} number={i} />);
+    }
 
     return (
       <div
@@ -38,19 +56,14 @@ class Template extends Component {
               <div className="tempProvince">{this.props.state.province}</div>
             </div>
           </div>
+
           <div className="rightTempContainer">
             <h3>Experience</h3>
-            <div className="tempExperienceContainer">
-              <TemplateExperience />
-            </div>
+            <div className="tempExperienceContainer">{expForms}</div>
             <h3>Education</h3>
-            <div className="tempEducationContainer">
-              <TemplateEducation />
-            </div>
+            <div className="tempEducationContainer">{eduForms}</div>
             <h3>Skills</h3>
-            <div className="tempSkillsContainer">
-              <TemplateSkills />
-            </div>
+            <div className="tempSkillsContainer">{skillForms}</div>
           </div>
         </div>
       </div>
