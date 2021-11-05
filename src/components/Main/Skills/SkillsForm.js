@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 
 class SkillsForm extends Component {
-  constructor() {
-    super();
-  }
   render() {
     return (
       <form className="skillsForm">
