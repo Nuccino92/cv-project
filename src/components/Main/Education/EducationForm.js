@@ -7,7 +7,7 @@ class EducationForm extends Component {
   render() {
     return (
       <form className="educationForm">
-        <label htmlFor="credentials">Rewarded Credentials</label>
+        <label htmlFor="credentials">Aquired Credentials</label>
         <input
           type="text"
           id="credentials"
