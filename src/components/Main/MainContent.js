@@ -21,9 +21,27 @@ class MainContent extends Component {
       province: "",
       phone: "",
       email: "",
+
+      values: [
+        {
+          title: "",
+          employer: "",
+          startDate: "",
+          toDate: "",
+          jobDescription: "",
+          tempTitle: "",
+          tempEmployer: "",
+          tempStartDate: "",
+          tempToDate: "",
+          tempJobDescription: "",
+          skills: "",
+        },
+      ],
     };
+
     this.addForm = this.addForm.bind(this);
     this.removeForm = this.removeForm.bind(this);
+    this.handlePersonal = this.handlePersonal.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
 
@@ -31,19 +49,44 @@ class MainContent extends Component {
     this.setState((prevState) => ({
       [event.target.name]: prevState[event.target.name] + 1,
     }));
+    this.setState((prev) => ({
+      values: [
+        ...prev.values,
+        {
+          title: "",
+          employer: "",
+          startDate: "",
+          toDate: "",
+          jobDescription: "",
+        },
+      ],
+    }));
   }
 
   removeForm(event) {
     if (this.state[event.target.name] === 0) return;
+
+    let values = [...this.state.values];
+    values.splice(this.state[event.target.name], 1);
+    this.setState({ values });
+
     this.setState((prevState) => ({
       [event.target.name]: prevState[event.target.name] - 1,
     }));
   }
 
-  handleChange(event) {
+  handlePersonal(event) {
     this.setState({
       [event.target.name]: event.target.value,
     });
+  }
+
+  handleChange(event, i) {
+    let values = [...this.state.values];
+
+    values[i][event.target.name] = event.target.value;
+
+    this.setState({ values });
   }
 
   render() {
@@ -52,26 +95,30 @@ class MainContent extends Component {
 
     return (
       <div style={ContainerStyle} className="mainContainer">
-        <PersonalInformation handleChange={this.handleChange} />
+        <PersonalInformation handleChange={this.handlePersonal} />
         <Experience
           numExperienceForms={this.state.numExperienceForms}
           addForm={this.addForm}
           removeForm={this.removeForm}
+          handleChange={this.handleChange}
         />
         <Education
           numEducationForms={this.state.numEducationForms}
           addForm={this.addForm}
           removeForm={this.removeForm}
+          handleChange={this.handleChange}
         />
         <Skills
           numSkillsForms={this.state.numSkillsForms}
           addForm={this.addForm}
           removeForm={this.removeForm}
+          handleChange={this.handleChange}
         />
         <Template
           state={this.state}
           isActive={isActive}
           handleActive={handleActive}
+          values={this.state.values}
         />
       </div>
     );
