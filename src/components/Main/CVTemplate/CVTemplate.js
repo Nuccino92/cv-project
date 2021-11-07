@@ -11,19 +11,25 @@ class Template extends Component {
     const { numEducationForms } = this.props.state;
     const { numSkillsForms } = this.props.state;
 
-    const eduForms = [];
-    for (let i = 0; i < numEducationForms; i += 1) {
-      eduForms.push(<TemplateEducation key={i} number={i} />);
-    }
-
     const expForms = [];
     for (let i = 0; i < numExperienceForms; i += 1) {
-      expForms.push(<TemplateExperience key={i} number={i} />);
+      expForms.push(
+        <TemplateExperience values={this.props.values[i]} key={i} number={i} />
+      );
+    }
+
+    const eduForms = [];
+    for (let i = 0; i < numEducationForms; i += 1) {
+      eduForms.push(
+        <TemplateEducation values={this.props.values[i]} key={i} number={i} />
+      );
     }
 
     const skillForms = [];
     for (let i = 0; i < numSkillsForms; i += 1) {
-      skillForms.push(<TemplateSkills key={i} number={i} />);
+      skillForms.push(
+        <TemplateSkills values={this.props.values[i]} key={i} number={i} />
+      );
     }
 
     return (
