@@ -1,22 +1,49 @@
 import React from "react";
 
-const ExperienceForm = () => {
+const ExperienceForm = ({ handleChange }) => {
   return (
     <form className="workForm">
       <label htmlFor="title">Title</label>
-      <input type="text" id="title" placeholder="Job Name"></input>
+      <input
+        type="text"
+        name="title"
+        id="title"
+        onChange={handleChange}
+        placeholder="Job Name"
+      ></input>
 
       <label htmlFor="employer">Employer</label>
-      <input type="text" id="employer" placeholder="Google"></input>
+      <input
+        type="text"
+        name="employer"
+        id="employer"
+        onChange={handleChange}
+        placeholder="Google"
+      ></input>
 
       <label htmlFor="startDate">Start:</label>
-      <input type="date" id="startDate"></input>
+      <input
+        type="date"
+        name="startDate"
+        id="startDate"
+        onChange={handleChange}
+      ></input>
 
       <label htmlFor="toDate">To:</label>
-      <input type="date" id="toDate"></input>
+      <input
+        type="date"
+        name="toDate"
+        id="toDate"
+        onChange={handleChange}
+      ></input>
 
       <label htmlFor="jobDescription">Job Description</label>
-      <textarea id="jobDescription" rows="6"></textarea>
+      <textarea
+        id="jobDescription"
+        name="jobDescription"
+        rows="6"
+        onChange={handleChange}
+      ></textarea>
     </form>
   );
 };
