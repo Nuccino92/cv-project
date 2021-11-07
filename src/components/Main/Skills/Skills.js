@@ -7,7 +7,13 @@ class Skills extends Component {
     const forms = [];
 
     for (let i = 0; i < numSkillsForms; i += 1) {
-      forms.push(<SkillsForm key={i} number={i} />);
+      forms.push(
+        <SkillsForm
+          handleChange={(e) => this.props.handleChange(e, i)}
+          key={i}
+          number={i}
+        />
+      );
     }
 
     return (

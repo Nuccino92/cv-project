@@ -7,7 +7,13 @@ class Education extends Component {
     const forms = [];
 
     for (let i = 0; i < numEducationForms; i += 1) {
-      forms.push(<EducationForm key={i} number={i} />);
+      forms.push(
+        <EducationForm
+          handleChange={(e) => this.props.handleChange(e, i)}
+          key={i}
+          number={i}
+        />
+      );
     }
 
     return (

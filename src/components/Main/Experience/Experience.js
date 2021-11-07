@@ -5,8 +5,15 @@ class Experience extends Component {
   render() {
     const { numExperienceForms } = this.props;
     const forms = [];
+
     for (let i = 0; i < numExperienceForms; i += 1) {
-      forms.push(<ExperienceForm key={i} number={i} />);
+      forms.push(
+        <ExperienceForm
+          handleChange={(e) => this.props.handleChange(e, i)}
+          key={i}
+          number={i}
+        />
+      );
     }
 
     return (
