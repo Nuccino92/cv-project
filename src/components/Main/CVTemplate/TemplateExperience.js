@@ -1,13 +1,13 @@
 import React from "react";
 
-function TemplateExperience() {
+function TemplateExperience({ values }) {
   return (
     <div className="tempExperience">
-      <div className="tempTitle"></div>
-      <div className="tempEmployer"></div>
-      <div className="tempStartDate"></div>
-      <div className="tempToDate"></div>
-      <div className="tempJobDescription"></div>
+      <div className="tempTitle">{values.title}</div>
+      <div className="tempEmployer">{values.employer}</div>
+      <div className="tempStartDate">{values.startDate}</div>
+      <div className="tempToDate">{values.toDate}</div>
+      <div className="tempJobDescription">{values.jobDescription}</div>
     </div>
   );
 }

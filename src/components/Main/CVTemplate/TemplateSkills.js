@@ -1,9 +1,9 @@
 import React from "react";
 
-const TemplateSkills = () => {
+const TemplateSkills = ({ values }) => {
   return (
     <div className="tempSkills">
-      <div className="skills"></div>
+      <div className="skills">{values.skills}</div>
     </div>
   );
 };
