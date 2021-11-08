@@ -1,9 +1,25 @@
 import React, { Component } from "react";
+import ReactToPrint from "react-to-print";
 import TemplateExperience from "./TemplateExperience";
 import TemplateEducation from "./TemplateEducation";
 import TemplateSkills from "./TemplateSkills";
 
 class Template extends Component {
+  constructor() {
+    super();
+
+    this.MouseOut = this.MouseOut.bind(this);
+    this.MouseOver = this.MouseOver.bind(this);
+  }
+
+  MouseOver(event) {
+    event.target.style.color = "#68CFCF";
+  }
+
+  MouseOut(event) {
+    event.target.style.color = "#f54e42";
+  }
+
   render() {
     const { isActive } = this.props;
     const { handleActive } = this.props;
@@ -37,10 +53,20 @@ class Template extends Component {
         className={isActive ? "modal active" : "modal"}
         onClick={handleActive}
       >
-        <div className={isActive ? "template active" : "template"}>
+        <div
+          ref={(el) => (this.componentRef = el)}
+          className={isActive ? "template active" : "template"}
+        >
           <div className="leftTempContainer">
             <div className="tempPhoto">
-              <img src="silhouette.png" alt="Silhouette of Person" />
+              <img
+                src={
+                  this.props.state.photo === ""
+                    ? "silhouette.png"
+                    : this.props.state.photo
+                }
+                alt="Silhouette of Person"
+              />
 
               <div className="tempNameContainer">
                 <div className="tempFirstName">
@@ -56,9 +82,13 @@ class Template extends Component {
 
             <div className="tempContactContainer">
               <h3 className="tempContactHeader">Contact</h3>
-              <div className="tempPhone">{this.props.state.phone}</div>
+              <h3>Email</h3>
               <div className="tempEmail">{this.props.state.email}</div>
+              <h3>Phone</h3>
+              <div className="tempPhone">{this.props.state.phone}</div>
+              <h3>City</h3>
               <div className="tempCity">{this.props.state.city}</div>
+              <h3>Province/state</h3>
               <div className="tempProvince">{this.props.state.province}</div>
             </div>
           </div>
@@ -72,9 +102,32 @@ class Template extends Component {
             <div className="tempSkillsContainer">{skillForms}</div>
           </div>
         </div>
+        <ReactToPrint
+          trigger={() => {
+            return (
+              <button
+                className={isActive ? "printBtn active" : "printBtn"}
+                onMouseOver={this.MouseOver}
+                onMouseOut={this.MouseOut}
+                style={printBtnStyles}
+              >
+                PRINT
+              </button>
+            );
+          }}
+          content={() => this.componentRef}
+        />
       </div>
     );
   }
 }
+
+const printBtnStyles = {
+  cursor: "pointer",
+  fontFamily: "Arimo",
+  fontSize: "23px",
+  fontWeight: "bolder",
+  color: "#f54e42",
+};
 
 export default Template;
