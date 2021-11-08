@@ -22,13 +22,6 @@ function Header({ handleActive }) {
           >
             View
           </button>
-          <button
-            onMouseOver={MouseOver}
-            onMouseOut={MouseOut}
-            style={PDFStyles}
-          >
-            PDF
-          </button>
         </div>
       </div>
     </header>
@@ -51,7 +44,7 @@ const HeaderStyles = {
 
 const ButtonContainer = {
   float: "right",
-  marginRight: "100px",
+  marginRight: "20px",
 };
 
 const ViewStyles = {
@@ -63,16 +56,6 @@ const ViewStyles = {
   fontWeight: "bolder",
   color: "#f54e42",
   marginRight: "40px",
-};
-
-const PDFStyles = {
-  cursor: "pointer",
-  fontFamily: "Arimo",
-  fontSize: "23px",
-  border: "none",
-  background: "none",
-  fontWeight: "bolder",
-  color: "#f54e42",
 };
 
 export default Header;
