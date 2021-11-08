@@ -29,13 +29,12 @@ class PersonalInformation extends Component {
             />
           </div>
 
-          <label htmlFor="profession" maxLength="10">
-            Profession
-          </label>
+          <label htmlFor="profession">Profession</label>
           <input
             type="text"
             name="profession"
             id="profession"
+            maxLength="12"
             placeholder="Carpenter"
             onChange={this.props.handleChange}
           />
@@ -48,6 +47,7 @@ class PersonalInformation extends Component {
               type="text"
               name="city"
               id="city"
+              maxLength="17"
               placeholder="Toronto"
               onChange={this.props.handleChange}
             />
@@ -55,6 +55,7 @@ class PersonalInformation extends Component {
               type="text"
               name="province"
               id="province"
+              maxLength="17"
               placeholder="Ontario"
               onChange={this.props.handleChange}
             />
@@ -69,9 +70,10 @@ class PersonalInformation extends Component {
             </label>
 
             <input
-              type="text"
+              type="number"
               name="phone"
               id="phone"
+              maxLength="15"
               placeholder="(123) 456-7899"
               onChange={this.props.handleChange}
             />
@@ -84,14 +86,16 @@ class PersonalInformation extends Component {
             />
           </div>
 
-          <label
-            htmlFor="photo"
-            name="photo"
-            onChange={this.props.handleChange}
-          >
+          <label htmlFor="photo" name="photo">
             Photo
           </label>
-          <input type="file" id="photo" />
+          <input
+            type="file"
+            id="photo"
+            name="photo"
+            onChange={this.props.handlePhoto}
+            accept="image/*"
+          />
         </form>
       </div>
     );
