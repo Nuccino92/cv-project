@@ -14,28 +14,26 @@
   background-color: rgba(0, 0, 0, 0.4);
 }
 
-.templateContainer {
-  border: 1px solid black;
-}
-
 .template {
   position: fixed;
   display: flex;
-  border: 1px solid black;
-  height: 1200px;
-  width: 1000px;
+  box-shadow: 0 0 0 3px rgba(77, 76, 76, 0.5);
+  height: 910px;
+  width: 800px;
   transform: scale(30%);
   left: 50%;
-  top: -20%;
+  top: 0%;
   cursor: pointer;
+  font-family: "Arimo";
+  word-wrap: break-word;
 }
 
 .template.active {
   position: initial;
   transform: scale(100%);
   margin: 10% auto;
-  height: 1200px;
-  width: 1000px;
+  height: 910px;
+  width: 800px;
   z-index: 1000;
 }
 
@@ -53,16 +51,16 @@
 
 .leftTempContainer > .tempPhoto {
   border: 1px solid black;
-  height: 130px;
-  width: 130px;
+  height: 150px;
+  width: 150px;
   border-radius: 2;
   margin: auto;
+  margin-top: 42px;
 }
 
 .tempPhoto > img {
   height: 100%;
   width: 100%;
-  object-fit: contain;
 }
 
 .tempNameContainer {
@@ -88,11 +86,23 @@
   left: 0;
   right: 0;
   width: 90%;
-  height: 30%;
-  border: 1px solid black;
+  height: 25%;
   border-radius: 2;
   margin: 0 auto;
   text-align: center;
+  font-weight: bolder;
+}
+
+.tempContactHeader {
+  margin-bottom: 20px;
+  font-size: 25px;
+  border-bottom: 1px solid rgb(187, 184, 184);
+  padding-bottom: 11px;
+}
+
+.tempContactContainer > div {
+  margin: 0 0 5px 0;
+  font-weight: normal;
 }
 
 .rightTempContainer {
@@ -104,7 +114,9 @@
 }
 
 .rightTempContainer > h3 {
-  background: khaki;
+  background-color: #eee6e7;
+  padding: 5px 0 5px 2px;
+  margin-top: 20px;
 }
 
 .rightTempContainer > .tempExperienceContainer {
@@ -118,6 +130,21 @@
   margin-top: 16px;
 }
 
+.tempPairContainer {
+  display: grid;
+  grid-template-columns: 300px 200px;
+}
+
+.tempPairContainer > h3 {
+  font-size: 14px;
+  margin: 7px 0 2px 0;
+}
+
+.tempExperience > h3 {
+  font-size: 14px;
+  margin-top: 5px;
+}
+
 .rightTempContainer > .tempEducationContainer {
   border-left: 1px solid black;
   border-bottom: 1px solid black;
@@ -125,9 +152,46 @@
   padding: 0 5px 5px 5px;
 }
 
+.tempEducation > h3 {
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.tempPairContainer > h3 {
+  font-size: 14px;
+  margin: 7px 0 2px 0;
+}
+
 .rightTempContainer > .tempSkillsContainer {
   border-left: 1px solid black;
   border-bottom: 1px solid black;
   margin-top: 12px;
   padding: 0 5px 5px 5px;
+}
+
+.tempSkills > h3 {
+  font-size: 14px;
+  margin-top: 5px;
+  font-size: 14px;
+  margin: 7px 0 2px 0;
+}
+
+.printBtn {
+  display: none;
+}
+
+.printBtn.active {
+  display: initial;
+  position: absolute;
+  padding: 10px 20px 10px 20px;
+  top: 10%;
+  left: 47%;
+  border: 3px solid black;
+  letter-spacing: 2px;
+}
+
+@media (max-width: 1141px) {
+  .template {
+    display: none;
+  }
 }

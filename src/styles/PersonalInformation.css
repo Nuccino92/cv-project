@@ -2,7 +2,7 @@
   width: 700px;
   padding: 10px;
   font-family: "Arimo";
-  border: 1px solid black;
+  margin-bottom: 50px;
 }
 
 .personalInformationContainer > h3 {
@@ -60,4 +60,5 @@
   height: min-content;
   width: min-content;
   border: none;
+  padding-bottom: 20px;
 }
