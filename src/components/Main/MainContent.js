@@ -21,6 +21,7 @@ class MainContent extends Component {
       province: "",
       phone: "",
       email: "",
+      photo: "",
 
       values: [
         {
@@ -43,12 +44,14 @@ class MainContent extends Component {
     this.removeForm = this.removeForm.bind(this);
     this.handlePersonal = this.handlePersonal.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.handlePhoto = this.handlePhoto.bind(this);
   }
 
   addForm(event) {
     this.setState((prevState) => ({
       [event.target.name]: prevState[event.target.name] + 1,
     }));
+
     this.setState((prev) => ({
       values: [
         ...prev.values,
@@ -75,6 +78,14 @@ class MainContent extends Component {
     }));
   }
 
+  handlePhoto(event) {
+    if (event.target.files && event.target.files[0]) {
+      this.setState({
+        photo: URL.createObjectURL(event.target.files[0]),
+      });
+    }
+  }
+
   handlePersonal(event) {
     this.setState({
       [event.target.name]: event.target.value,
@@ -95,7 +106,10 @@ class MainContent extends Component {
 
     return (
       <div style={ContainerStyle} className="mainContainer">
-        <PersonalInformation handleChange={this.handlePersonal} />
+        <PersonalInformation
+          handlePhoto={this.handlePhoto}
+          handleChange={this.handlePersonal}
+        />
         <Experience
           numExperienceForms={this.state.numExperienceForms}
           addForm={this.addForm}
@@ -126,7 +140,7 @@ class MainContent extends Component {
 }
 
 const ContainerStyle = {
-  padding: "40px",
+  padding: "40px 40px 40px 230px",
   marginTop: "150px",
   position: "relative",
 };
