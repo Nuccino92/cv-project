@@ -48,8 +48,9 @@ class MainContent extends Component {
   }
 
   addForm(event) {
+    const { name } = event.target;
     this.setState((prevState) => ({
-      [event.target.name]: prevState[event.target.name] + 1,
+      [name]: prevState[name] + 1,
     }));
 
     this.setState((prev) => ({
@@ -67,35 +68,42 @@ class MainContent extends Component {
   }
 
   removeForm(event) {
-    if (this.state[event.target.name] === 0) return;
+    const { name } = event.target;
+
+    if (this.state[name] === 0) return;
 
     let values = [...this.state.values];
-    values.splice(this.state[event.target.name], 1);
+    values.splice(this.state[name], 1);
+
     this.setState({ values });
 
     this.setState((prevState) => ({
-      [event.target.name]: prevState[event.target.name] - 1,
+      [name]: prevState[name] - 1,
     }));
   }
 
   handlePhoto(event) {
-    if (event.target.files && event.target.files[0]) {
+    const { files } = event.target;
+
+    if (files && files[0]) {
       this.setState({
-        photo: URL.createObjectURL(event.target.files[0]),
+        photo: URL.createObjectURL(files[0]),
       });
     }
   }
 
   handlePersonal(event) {
+    const { name, value } = event.target;
     this.setState({
-      [event.target.name]: event.target.value,
+      [name]: value,
     });
   }
 
   handleChange(event, i) {
+    const { name, value } = event.target;
     let values = [...this.state.values];
 
-    values[i][event.target.name] = event.target.value;
+    values[i][name] = value;
 
     this.setState({ values });
   }
