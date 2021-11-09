@@ -189,9 +189,3 @@
   border: 3px solid black;
   letter-spacing: 2px;
 }
-
-@media (max-width: 1141px) {
-  .template {
-    display: none;
-  }
-}
